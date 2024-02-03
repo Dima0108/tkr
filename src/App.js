@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import addNotification from 'react-push-notification';
+import logo from "./images/logo.png"
 
 function App() {
+  const clickTONotify = () => {
+    addNotification({
+      title: 'Вам уведомления',
+      message: 'Александр выставил новый пост',
+      duration: 4000,
+      icon: logo,
+      native: true,
+      onClick: () => window.location = "https://www.instagram.com/shankin_alexandr/",
+    });
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={clickTONotify} style={{margin: '100px'}}>
+      Нажмите, чтобы уведомить
+      </button>
     </div>
   );
 }
